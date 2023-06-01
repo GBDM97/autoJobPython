@@ -15,34 +15,34 @@ def easyApplyService():
     # job_elements = wait.until(EC.presence_of_element_located((By.CLASS_NAME, "jobs-search-results__list-item.occludable-update.p0.relative.scaffold-layout__list-item")))
     elements = browser.find_elements('css selector', '.jobs-search-results__list-item.occludable-update.p0.relative.scaffold-layout__list-item')
     for element in elements:
-        time.sleep(3)
-        apply = browser.find_element("css selector",".jobs-apply-button.artdeco-button.artdeco-button--3.artdeco-button--primary.ember-view")
-        apply.click()
+        element.click()
+        time.sleep(0.5)
+        apply = browser.find_elements('css selector', '.jobs-apply-button.artdeco-button.artdeco-button--3')
+        time.sleep(0.5)
+        apply[0].click()
         next = browser.find_element("css selector",".artdeco-button.artdeco-button--2.artdeco-button--primary.ember-view")
         next.click()
-        next.click()
-        next.click()
-        next.click()
+        applyFlow()
 
-        element.click()
+def applyFlow():
+    if evaluateErrorExists():
+        
+def evaluateErrorExists():
+    browser.find_element(By.XPATH, "//*[text()='']")
 
-def login():
-    browser.maximize_window()
-    time.sleep(1)
-    browser.get('https://linkedin.com')
-    browser.get('https://linkedin.com')
-    browser.refresh()
-    time.sleep(1)
-    email_input = wait.until(EC.presence_of_element_located((By.ID, "session_key")))
-    password_input = wait.until(EC.presence_of_element_located((By.ID, "session_password")))
-    email_input.send_keys("***")
-    password_input.send_keys("***")
-    password_input.send_keys(Keys.ENTER)
-
-def test():
-    browser.get('https://gmwebapps.netlify.app')
 easyApplyService()
-# easyApplyService()
+# def login():
+#     browser.maximize_window()
+#     time.sleep(1)
+#     browser.get('https://linkedin.com')
+#     browser.get('https://linkedin.com')
+#     browser.refresh()
+#     time.sleep(1)
+#     email_input = wait.until(EC.presence_of_element_located((By.ID, "session_key")))
+#     password_input = wait.until(EC.presence_of_element_located((By.ID, "session_password")))
+#     email_input.send_keys("***")
+#     password_input.send_keys("***")
+#     password_input.send_keys(Keys.ENTER)
 
 
 
