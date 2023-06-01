@@ -15,11 +15,16 @@ def easyApplyService():
     # job_elements = wait.until(EC.presence_of_element_located((By.CLASS_NAME, "jobs-search-results__list-item.occludable-update.p0.relative.scaffold-layout__list-item")))
     elements = browser.find_elements('css selector', '.jobs-search-results__list-item.occludable-update.p0.relative.scaffold-layout__list-item')
     for element in elements:
+        time.sleep(3)
+        apply = browser.find_element("css selector",".jobs-apply-button.artdeco-button.artdeco-button--3.artdeco-button--primary.ember-view")
+        apply.click()
+        next = browser.find_element("css selector",".artdeco-button.artdeco-button--2.artdeco-button--primary.ember-view")
+        next.click()
+        next.click()
+        next.click()
+        next.click()
+
         element.click()
-        time.sleep(1)
-        actions.move_by_offset(700, 430).click()
-        time.sleep(1)
-        wait.until(EC.presence_of_element_located((By.ID, "ember543"))).click()
 
 def login():
     browser.maximize_window()
@@ -36,7 +41,7 @@ def login():
 
 def test():
     browser.get('https://gmwebapps.netlify.app')
-test()
+easyApplyService()
 # easyApplyService()
 
 
